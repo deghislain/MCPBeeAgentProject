@@ -7,4 +7,6 @@ if __name__ == "__main__":
     st.button("Submit")
     if symbol:
         result = tool.call_income_statement_info_service(symbol)
-        print(result)
+        print("***************************************income--", result)
+        balance = tool.call_balance_sheet_info_service(symbol)
+        print("***************************************balance--", balance)

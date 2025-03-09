@@ -1,4 +1,4 @@
-from typing import List, Dict
+from typing import List
 
 
 def get_income_statement_keys() -> List:
