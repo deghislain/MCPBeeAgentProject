@@ -144,7 +144,7 @@ class StockTools:
             print(f"Error fetching stock data: {e}")
             return []
 
-    def call_daily_adjusted_info_service(stock_symbol: str) -> List[Dict]:
+    def call_weekly_adjusted_info_service(stock_symbol: str) -> List[Dict]:
         """
            Retrieves the daily stock data info for a given stock for the last 3 years'
 
@@ -158,10 +158,10 @@ class StockTools:
         try:
             stock_url = f"https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY_ADJUSTED&symbol={stock_symbol}&apikey={AV_STOCK_API_KEY}"
             stock_data = requests.get(stock_url)
-            last_refresh_date = stock_data.json()['Meta Data']['3. Last Refreshed']
+            previous_refresh = stock_data.json()['Meta Data']['3. Last Refreshed']
             weekly_adjusted_data = stock_data.json()['Weekly Adjusted Time Series']
             last_quarter = []
-            previous_refresh = last_refresh_date
+
             for count in range(12):
                 try:
                     week_dict ={previous_refresh: {key: weekly_adjusted_data[previous_refresh][key] for key in stock_dict_keys.get_weekly_adjusted_keys()}}

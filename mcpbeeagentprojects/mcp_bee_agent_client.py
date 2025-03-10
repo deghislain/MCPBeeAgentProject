@@ -11,5 +11,5 @@ if __name__ == "__main__":
         cash_flow = tool.call_cash_flow_info_service(symbol)
         earnings = tool.call_earnings_info_service(symbol)
         insiders_tx = tool.call_insider_tx_info_service(symbol)
-        weekly_adjusted = tool.call_daily_adjusted_info_service(symbol)
+        weekly_adjusted = tool.call_weekly_adjusted_info_service(symbol)
 
